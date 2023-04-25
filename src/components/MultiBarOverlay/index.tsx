@@ -31,13 +31,14 @@ export const MultiBarOverlay: React.FC<Props> = ({
     }, overlayProps || {});
   }, [overlayProps]);
 
+  // const iconSizeHalf = React.useMemo(() => iconSize / 2, [iconSize]);
   const iconSizeHalf = React.useMemo(() => iconSize / 2, [iconSize]);
-  const surfaceSize = React.useMemo(() => (overlayRadius * 2) + iconSize, [iconSize, overlayRadius]);
+  const surfaceSize = React.useMemo(() => (overlayRadius ) + iconSize, [iconSize, overlayRadius]);
   const surfaceSizeHalf = React.useMemo(() => surfaceSize / 2, [surfaceSize]);
   const angleStep = React.useMemo(() => COMMON_DEGREES / data.length, [data]);
   const animations = React.useMemo(() => data.map(() => new Animated.Value(extrasVisible ? 1 : 0)), [data]);
   const overlayHeight = React.useMemo(() => {
-    return surfaceSizeHalf * (surfaceSize / overlayRadius / 2);
+    return surfaceSizeHalf * (surfaceSize / overlayRadius / 2.5);
   }, [surfaceSizeHalf, surfaceSize, overlayRadius]);
 
   React.useEffect(() => {
@@ -64,8 +65,8 @@ export const MultiBarOverlay: React.FC<Props> = ({
 
     const angle = COMMON_DEGREES + (angleStep * idx) + (angleStep / 2);
 
-    const x = overlayRadius * Math.cos(angle * Math.PI / COMMON_DEGREES) + (surfaceSizeHalf - iconSizeHalf);
-    const y = overlayRadius * Math.sin(angle * Math.PI / COMMON_DEGREES) + (surfaceSizeHalf);
+    const x = overlayRadius * Math.cos(angle * Math.PI / COMMON_DEGREES) + (surfaceSize - iconSizeHalf);
+    const y = overlayRadius * -0.8 + (surfaceSizeHalf);
 
     const left = animations[idx].interpolate({
       inputRange: [0, 1],
@@ -107,9 +108,9 @@ export const MultiBarOverlay: React.FC<Props> = ({
     <Animated.View
       pointerEvents="box-none"
       style={[styles.container, {
-        width: surfaceSize,
-        height: overlayHeight
-      }]}
+        width: '100%',      // added by robin
+        height: overlayHeight,
+      }, extrasVisible?{backgroundColor: 'white'}:{} ]} //added by Robin
     >
       {itemsList}
     </Animated.View>
