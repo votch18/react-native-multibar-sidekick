@@ -14,11 +14,11 @@ There is an example how to use the react-native-multibar [Tabber Expo](https://g
 ## Install
 
 ```bash
-yarn add react-native-multibar
+yarn add react-native-multibar-crosslisting
 ```
 or
 ```bash
-npm i react-native-multibar
+npm i react-native-multibar-crosslisting
 ```
 
 ## Usage
