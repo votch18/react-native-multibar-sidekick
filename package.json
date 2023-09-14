@@ -1,6 +1,6 @@
 {
   "name" : "react-native-multibar-crosslisting",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "MultiBar is a TabBar component with an advanced button to make extra actions.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
