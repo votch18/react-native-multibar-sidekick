@@ -1,6 +1,6 @@
 {
   "name" : "react-native-multibar-crosslisting",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "MultiBar is a TabBar component with an advanced button to make extra actions.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -20,7 +20,7 @@
     "Tab Bar",
     "Multi Bar"
   ],
-  "author": "Alex Melnyk",
+  "author": "Super Success",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/SuperSuccessTalent/react-native-multibar-crosslisting/issues"
