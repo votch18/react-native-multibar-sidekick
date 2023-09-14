@@ -5,8 +5,6 @@ import { MultiBarContext, } from '../../context';
 import { MultiBarOverlayProps, MultiBarPassThroughParams } from '../../types';
 import { styles } from './Styles';
 
-const COMMON_DEGREES = 180;
-
 type Props = Pick<MultiBarPassThroughParams, 'params'>;
 
 export const MultiBarOverlay: React.FC<Props> = ({
@@ -23,25 +21,19 @@ export const MultiBarOverlay: React.FC<Props> = ({
     expandingMode,
     iconWidth,
     iconHeight,
-    overlayRadius
+    overlayWidth,
+    overlayHeight
   } = React.useMemo<Required<MultiBarOverlayProps>>(() => {
     return Object.assign<Required<MultiBarOverlayProps>, MultiBarOverlayProps>({
       expandingMode: 'staging',
       iconWidth: 30,
       iconHeight: 30,
-      overlayRadius: 80
+      overlayWidth: 300,
+      overlayHeight: 100
     }, overlayProps || {});
   }, [overlayProps]);
 
-  // const iconWidthHalf = React.useMemo(() => iconWidth / 2, [iconWidth]);
-  const iconWidthHalf = React.useMemo(() => iconWidth / 2, [iconWidth]);
-  const surfaceSize = React.useMemo(() => (overlayRadius *2 ) + iconWidth, [iconWidth, overlayRadius]);
-  const surfaceSizeHalf = React.useMemo(() => surfaceSize / 2, [surfaceSize]);
-  const angleStep = React.useMemo(() => COMMON_DEGREES / data.length, [data]);
   const animations = React.useMemo(() => data.map(() => new Animated.Value(extrasVisible ? 1 : 0)), [data]);
-  const overlayHeight = React.useMemo(() => {
-    return surfaceSizeHalf * (surfaceSize / overlayRadius / 4);
-  }, [surfaceSizeHalf, surfaceSize, overlayRadius]);
 
   React.useEffect(() => {
     const animate = Animated.spring;
@@ -65,24 +57,19 @@ export const MultiBarOverlay: React.FC<Props> = ({
       setExtrasVisible(false);
     };
 
-    const angle = COMMON_DEGREES + (angleStep * idx) + (angleStep / 2);
+    const stepX = overlayWidth / (data.length)  ;
 
-    const x = overlayRadius * Math.cos(angle * Math.PI / COMMON_DEGREES) + (surfaceSizeHalf - iconWidthHalf);
-    const y = overlayRadius * -1.2 + (surfaceSizeHalf);
-
+    const x = stepX * (idx ) ;
+    const y = overlayHeight * 0.15;
+    
     const left = animations[idx].interpolate({
       inputRange: [0, 1],
-      outputRange: [surfaceSizeHalf - iconWidthHalf, x]
+      outputRange: [(overlayWidth - iconWidth)/2 , x]
     });
 
     const top = animations[idx].interpolate({
       inputRange: [0, 1],
-      outputRange: [surfaceSize, y]
-    });
-
-    const rotateZ = animations[idx].interpolate({
-      inputRange: [0, 1],
-      outputRange: ['90deg', '0deg']
+      outputRange: [overlayHeight, y]
     });
 
     return (
@@ -93,9 +80,6 @@ export const MultiBarOverlay: React.FC<Props> = ({
           top,
           width: iconWidth,
           height: iconHeight,
-          transform: [
-            { rotateZ }
-          ]
         }]}
         onTouchEnd={handleTouchEnd}
       >
@@ -104,13 +88,13 @@ export const MultiBarOverlay: React.FC<Props> = ({
         })}
       </Animated.View>
     )
-  }), [animations, angleStep, data, iconWidth, iconHeight, overlayRadius, surfaceSizeHalf, iconWidthHalf]);
+  }), [animations, data, iconWidth, iconHeight, overlayHeight, overlayWidth]);
 
   return (
     <Animated.View
       pointerEvents="box-none"
       style={[styles.container, {
-        width: surfaceSize,   
+        width: overlayWidth,   
         height: overlayHeight,
       }]} 
     >

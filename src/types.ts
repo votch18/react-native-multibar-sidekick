@@ -1,7 +1,8 @@
 export type MultiBarOverlayProps = {
   iconWidth?: number;
   iconHeight?: number;
-  overlayRadius?: number;
+  overlayWidth?: number;
+  overlayHeight?: number;
   expandingMode?: 'staging' | 'flat'
 };
 
