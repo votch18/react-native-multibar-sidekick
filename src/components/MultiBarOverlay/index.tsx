@@ -57,9 +57,8 @@ export const MultiBarOverlay: React.FC<Props> = ({
       setExtrasVisible(false);
     };
 
-    const stepX = overlayWidth / (data.length)  ;
-
-    const x = stepX * (idx ) ;
+    const stepX = overlayWidth / (data.length + 1)  ;
+    const x =  stepX * (idx + 1) - iconWidth / 2 ;
     const y = overlayHeight * 0.15;
     
     const left = animations[idx].interpolate({
