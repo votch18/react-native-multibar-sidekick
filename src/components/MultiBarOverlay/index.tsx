@@ -22,14 +22,16 @@ export const MultiBarOverlay: React.FC<Props> = ({
     iconWidth,
     iconHeight,
     overlayWidth,
-    overlayHeight
+    overlayHeight,
+    overlayBackground
   } = React.useMemo<Required<MultiBarOverlayProps>>(() => {
     return Object.assign<Required<MultiBarOverlayProps>, MultiBarOverlayProps>({
       expandingMode: 'staging',
       iconWidth: 30,
       iconHeight: 30,
       overlayWidth: 300,
-      overlayHeight: 100
+      overlayHeight: 100,
+      overlayBackground: 'transparent'
     }, overlayProps || {});
   }, [overlayProps]);
 
@@ -79,6 +81,7 @@ export const MultiBarOverlay: React.FC<Props> = ({
           top,
           width: iconWidth,
           height: iconHeight,
+          backgroundColor: overlayBackground || 'transparent'
         }]}
         onTouchEnd={handleTouchEnd}
       >
@@ -95,6 +98,7 @@ export const MultiBarOverlay: React.FC<Props> = ({
       style={[styles.container, {
         width: overlayWidth,   
         height: overlayHeight,
+        backgroundColor: overlayBackground || 'transparent'
       }]} 
     >
       {itemsList}

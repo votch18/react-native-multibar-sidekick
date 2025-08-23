@@ -3,7 +3,8 @@ export type MultiBarOverlayProps = {
   iconHeight?: number;
   overlayWidth?: number;
   overlayHeight?: number;
-  expandingMode?: 'staging' | 'flat'
+  expandingMode?: 'staging' | 'flat',
+  overlayBackground?: string;
 };
 
 export type MultiBarPassThroughParams = {
