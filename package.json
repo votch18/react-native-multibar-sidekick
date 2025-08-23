@@ -1,11 +1,14 @@
 {
   "name": "react-native-multibar-sidekick",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "MultiBar is a TabBar component with an advanced button to make extra actions.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc && babel src --out-dir dist --extensions .ts,.tsx,.js,.jsx",
+    "build:tsc": "tsc",
+    "build:babel": "babel src --out-dir dist --extensions .ts,.tsx,.js,.jsx"
   },
   "repository": {
     "type": "git",
@@ -27,11 +30,17 @@
   },
   "homepage": "https://github.com/votch18/react-native-multibar-sidekick#readme",
   "devDependencies": {
+    "@babel/cli": "^7.28.3",
     "@babel/core": "^7.11.1",
+    "@babel/plugin-transform-runtime": "^7.28.3",
+    "@babel/preset-env": "^7.28.3",
+    "@babel/preset-react": "^7.27.1",
+    "@babel/preset-typescript": "^7.27.1",
     "@types/react": "~16.9.23",
     "@types/react-native": "~0.61.17",
-    "typescript": "~3.9.7",
-    "babel-preset-react-native": "^4.0.1"
+    "@types/react-native-vector-icons": "^6.4.18",
+    "babel-preset-react-native": "^4.0.1",
+    "typescript": "~3.9.7"
   },
   "peerDependencies": {
     "react": ">=16.9.0",
@@ -39,5 +48,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "react-native-vector-icons": "^10.3.0"
   }
 }

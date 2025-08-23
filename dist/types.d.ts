@@ -1,8 +1,11 @@
 /// <reference types="react" />
 export declare type MultiBarOverlayProps = {
-    iconSize?: number;
-    overlayRadius?: number;
+    iconWidth?: number;
+    iconHeight?: number;
+    overlayWidth?: number;
+    overlayHeight?: number;
     expandingMode?: 'staging' | 'flat';
+    overlayBackground?: string;
 };
 export declare type MultiBarPassThroughParams = {
     params?: any;

@@ -1,15 +1,44 @@
 "use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __exportStar = (this && this.__exportStar) || function(m, exports) {
-    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(require("./BottomTabBarWrapper"), exports);
-__exportStar(require("./MultiBarButton"), exports);
-__exportStar(require("./MultiBarOverlay"), exports);
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _BottomTabBarWrapper = require("./BottomTabBarWrapper");
+
+Object.keys(_BottomTabBarWrapper).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  if (key in exports && exports[key] === _BottomTabBarWrapper[key]) return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _BottomTabBarWrapper[key];
+    }
+  });
+});
+
+var _MultiBarButton = require("./MultiBarButton");
+
+Object.keys(_MultiBarButton).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  if (key in exports && exports[key] === _MultiBarButton[key]) return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _MultiBarButton[key];
+    }
+  });
+});
+
+var _MultiBarOverlay = require("./MultiBarOverlay");
+
+Object.keys(_MultiBarOverlay).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  if (key in exports && exports[key] === _MultiBarOverlay[key]) return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _MultiBarOverlay[key];
+    }
+  });
+});

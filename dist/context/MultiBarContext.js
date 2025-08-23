@@ -1,36 +1,38 @@
 "use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
+
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
 });
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
 exports.MultiBarProvider = exports.MultiBarContext = void 0;
-const React = __importStar(require("react"));
-exports.MultiBarContext = React.createContext({});
-const MultiBarProvider = ({ children, data, initialExtrasVisible = false, overlayProps }) => {
-    const [extrasVisible, setExtrasVisible] = React.useState(initialExtrasVisible);
-    return (<exports.MultiBarContext.Provider value={{
-            data,
-            extrasVisible,
-            setExtrasVisible,
-            overlayProps
-        }}>
-      {children}
-    </exports.MultiBarContext.Provider>);
+
+var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
+
+var React = _interopRequireWildcard(require("react"));
+
+var MultiBarContext = exports.MultiBarContext = /*#__PURE__*/React.createContext({});
+
+var MultiBarProvider = exports.MultiBarProvider = function MultiBarProvider(_ref) {
+  var children = _ref.children,
+      data = _ref.data,
+      _ref$initialExtrasVis = _ref.initialExtrasVisible,
+      initialExtrasVisible = _ref$initialExtrasVis === void 0 ? false : _ref$initialExtrasVis,
+      overlayProps = _ref.overlayProps;
+
+  var _React$useState = React.useState(initialExtrasVisible),
+      _React$useState2 = (0, _slicedToArray2["default"])(_React$useState, 2),
+      extrasVisible = _React$useState2[0],
+      setExtrasVisible = _React$useState2[1];
+
+  return /*#__PURE__*/React.createElement(MultiBarContext.Provider, {
+    value: {
+      data: data,
+      extrasVisible: extrasVisible,
+      setExtrasVisible: setExtrasVisible,
+      overlayProps: overlayProps
+    }
+  }, children);
 };
-exports.MultiBarProvider = MultiBarProvider;

@@ -1,31 +1,37 @@
 "use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
+
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
 });
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
 exports.BottomTabBarWrapper = void 0;
-const React = __importStar(require("react"));
-const react_native_1 = require("react-native");
-const MultiBarOverlay_1 = require("../MultiBarOverlay");
-const Styles_1 = require("./Styles");
-const BottomTabBarWrapper = ({ children, params }) => (<react_native_1.View pointerEvents="box-none" style={Styles_1.styles.container}>
-    <MultiBarOverlay_1.MultiBarOverlay params={params}/>
-    {children}
-  </react_native_1.View>);
-exports.BottomTabBarWrapper = BottomTabBarWrapper;
+
+var React = _interopRequireWildcard(require("react"));
+
+var _reactNative = require("react-native");
+
+var _MultiBarOverlay = require("../MultiBarOverlay");
+
+var _Styles = require("./Styles");
+
+var _context = require("../../context");
+
+var BottomTabBarWrapper = exports.BottomTabBarWrapper = function BottomTabBarWrapper(_ref) {
+  var children = _ref.children,
+      params = _ref.params;
+
+  var _React$useContext = React.useContext(_context.MultiBarContext),
+      extrasVisible = _React$useContext.extrasVisible;
+
+  return /*#__PURE__*/React.createElement(_reactNative.View, {
+    pointerEvents: "box-none",
+    style: [_Styles.styles.container, extrasVisible ? {
+      backgroundColor: 'white'
+    } : {
+      backgroundColor: 'transparent'
+    }]
+  }, /*#__PURE__*/React.createElement(_MultiBarOverlay.MultiBarOverlay, {
+    params: params
+  }), children);
+};

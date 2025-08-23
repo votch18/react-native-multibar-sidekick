@@ -1,14 +1,21 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.styles = void 0;
-const react_native_1 = require("react-native");
-const { width: screenWidth } = react_native_1.Dimensions.get('screen');
-exports.styles = react_native_1.StyleSheet.create({
-    container: {
-        position: 'absolute',
-        left: 0,
-        bottom: 0,
-        width: screenWidth,
-        justifyContent: 'flex-end'
-    }
+
+var _reactNative = require("react-native");
+
+var _Dimensions$get = _reactNative.Dimensions.get('screen'),
+    screenWidth = _Dimensions$get.width;
+
+var styles = exports.styles = _reactNative.StyleSheet.create({
+  container: {
+    position: 'absolute',
+    left: 0,
+    bottom: 0,
+    width: screenWidth,
+    justifyContent: 'flex-end'
+  }
 });
