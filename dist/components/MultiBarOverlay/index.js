@@ -84,20 +84,20 @@ var MultiBarOverlay = exports.MultiBarOverlay = function MultiBarOverlay(_ref) {
           top: top,
           width: iconWidth,
           height: iconHeight,
-          backgroundColor: overlayBackground || 'transparent'
+          backgroundColor: 'transparent'
         }],
         onTouchEnd: handleTouchEnd
       }, extrasRender({
         params: params
       }));
     });
-  }, [animations, data, iconWidth, iconHeight, overlayHeight, overlayWidth]);
+  }, [animations, data, iconWidth, iconHeight, overlayHeight, overlayWidth, overlayBackground]);
   return /*#__PURE__*/React.createElement(_reactNative.Animated.View, {
     pointerEvents: "box-none",
     style: [_Styles.styles.container, {
       width: overlayWidth,
       height: overlayHeight,
-      backgroundColor: overlayBackground || 'transparent'
+      backgroundColor: 'transparent'
     }]
   }, itemsList);
 };

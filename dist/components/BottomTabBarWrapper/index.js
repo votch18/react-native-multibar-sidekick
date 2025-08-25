@@ -22,12 +22,13 @@ var BottomTabBarWrapper = exports.BottomTabBarWrapper = function BottomTabBarWra
       params = _ref.params;
 
   var _React$useContext = React.useContext(_context.MultiBarContext),
-      extrasVisible = _React$useContext.extrasVisible;
+      extrasVisible = _React$useContext.extrasVisible,
+      overlayProps = _React$useContext.overlayProps;
 
   return /*#__PURE__*/React.createElement(_reactNative.View, {
     pointerEvents: "box-none",
     style: [_Styles.styles.container, extrasVisible ? {
-      backgroundColor: 'white'
+      backgroundColor: overlayProps === null || overlayProps === void 0 ? void 0 : overlayProps.overlayBackground
     } : {
       backgroundColor: 'transparent'
     }]
