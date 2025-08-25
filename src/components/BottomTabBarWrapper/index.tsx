@@ -14,6 +14,7 @@ export const BottomTabBarWrapper: React.FC<Props> = ({
 }) => {
   const {
     extrasVisible,
+    overlayProps
   } = React.useContext(MultiBarContext);
 
   return (
