@@ -20,7 +20,7 @@ export const BottomTabBarWrapper: React.FC<Props> = ({
   return (
     <View
       pointerEvents="box-none"
-      style={[styles.container, extrasVisible?{backgroundColor:'white'} :  {backgroundColor:'transparent'} ]}
+      style={[styles.container, extrasVisible ? {backgroundColor:overlayProps?.overlayBackground}  :  {backgroundColor:'transparent'}]}
     >
       <MultiBarOverlay
         params={params}

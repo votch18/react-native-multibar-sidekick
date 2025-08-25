@@ -81,7 +81,7 @@ export const MultiBarOverlay: React.FC<Props> = ({
           top,
           width: iconWidth,
           height: iconHeight,
-          backgroundColor: overlayBackground || 'transparent'
+          backgroundColor: 'transparent'
         }]}
         onTouchEnd={handleTouchEnd}
       >
@@ -90,7 +90,7 @@ export const MultiBarOverlay: React.FC<Props> = ({
         })}
       </Animated.View>
     )
-  }), [animations, data, iconWidth, iconHeight, overlayHeight, overlayWidth]);
+  }), [animations, data, iconWidth, iconHeight, overlayHeight, overlayWidth, overlayBackground]);
 
   return (
     <Animated.View
@@ -98,7 +98,7 @@ export const MultiBarOverlay: React.FC<Props> = ({
       style={[styles.container, {
         width: overlayWidth,   
         height: overlayHeight,
-        backgroundColor: overlayBackground || 'transparent'
+        backgroundColor: 'transparent'
       }]} 
     >
       {itemsList}
